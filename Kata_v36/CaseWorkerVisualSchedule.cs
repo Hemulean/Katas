@@ -55,7 +55,7 @@ namespace Scheduler
             }
             catch (MeetingOverlapException exception)
             {
-                MessageBox.Show(exception.Message);
+                MessageBox.Show(exception.Message , "Overlap");
             }
            
         }

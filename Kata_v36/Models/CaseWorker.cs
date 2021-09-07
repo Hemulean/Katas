@@ -49,6 +49,10 @@ namespace Scheduler.Models
             {
                 if (meeting == meetingToChange)
                     continue;
+                else if (meeting.Overlap(meetingToChange))
+                {
+                    throw new MeetingOverlapException(meeting);
+                }
 
                 // TODO kasta MeetingOverlapException om två möten överlappar
             }
