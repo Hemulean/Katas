@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace Scheduler.Models
 {
@@ -31,9 +32,17 @@ namespace Scheduler.Models
 
         public override string ToString()
         {
-            string date = Start.ToString("d'/'M'/'yy");
+            string date = Start.ToString("d'/'M'/'yy ");
+            string timeStart = Start.ToString("H:mm");
+            string duration = Duration.ToString();
+            DateTime endTime = Start + Duration;
+            string timeEnd = endTime.ToString("H:mm");
 
-            string info = date;
+            
+
+            string info = date + " " + timeStart + "- " + timeEnd;
+
+            
 
             if (Applicant != null)
                 info += " with: " + Applicant.Name;

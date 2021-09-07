@@ -29,6 +29,11 @@ namespace Scheduler.Models
 
             foreach (Meeting meeting in Meetings)
             {
+                if (meeting.Overlap(newMeeting))
+                {
+                    throw new MeetingOverlapException(meeting);
+                }
+
                 // TODO kasta MeetingOverlapException om två möten överlappar
             }
 
